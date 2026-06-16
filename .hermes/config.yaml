@@ -1,0 +1,53 @@
+model:
+  default: deepseek-v4-flash
+  provider: custom
+  base_url: https://api.deepseek.com/v1
+providers:
+  custom:
+    sensenova:
+      base_url: https://token.sensenova.cn/v1
+      api_key: ${SN_API_KEY}
+      models:
+      - deepseek-v4-flash
+      - sensenova-6.7-flash-lite
+      - sensenova-u1-fast
+    agnes:
+      base_url: https://apihub.agnes-ai.com/v1
+      api_key: ${AGNES_AI_API_KEY}
+      models:
+      - agnes-2.0-flash
+      - agnes-image-2.1-flash
+fallback_providers:
+- provider: custom
+  base_url: https://token.sensenova.cn/v1
+  api_key: ${SN_API_KEY}
+  model: sensenova-6.7-flash-lite
+
+# --- 以下为原配置保留，按需修改 ---
+
+terminal:
+  backend: local
+  timeout: 180
+  persistent_shell: true
+
+display:
+  language: zh
+  personality: hermes
+  skin: default
+  timestamps: false
+  streaming: false
+
+memory:
+  memory_enabled: true
+  user_profile_enabled: true
+
+skills:
+  external_dirs:
+    - /opt/data/skills
+
+security:
+  redact_secrets: true
+
+agent:
+  max_turns: 90
+  gateway_timeout: 1800
