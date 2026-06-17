@@ -58,6 +58,24 @@ category: devops
 - 从 `/opt/data` 启动网关会初始化挂起，gateway_state.json 永远不写入
 - ✅ 必须 `cd /opt/hermes` 再启动
 
+### iLink 限流
+- 日志出现 `rate limited`，消息能收到但发不出回复
+- ✅ 重启 gateway 后等 1-2 分钟让限流计数器复位
+- ⚠️ 不要在限流期间连续重发，会加剧问题
+
+### state.json 引用僵尸 PID
+- gateway_state.json 显示 running 但实际 PID 已不存在
+- ✅ 对比 `ps aux | grep "hermes gateway run"`，确认 PID 存活
+- ✅ 修复：`rm -f /opt/data/gateway.lock /opt/data/gateway_state.json` 后重启 gateway
+
+### 日本节点带宽限速
+- 日本节点 ping 低但流式响应易超时，大 payload SSL EOF
+- ✅ 切到美国节点：
+  ```bash
+  curl -X PUT http://127.0.0.1:9090/proxies/Proxies -d '{"name": "US"}'
+  curl -X PUT http://container-ip:9090/proxies/US -d '{"name": "🇺🇸 美国节点名"}'
+  ```
+
 ### .env HTTP_PROXY 覆盖 shell unset
 - start-gateway.sh 虽然 unset proxy，但 Python 加载 .env 时重新设了 HTTP_PROXY
 - ✅ 从 .env 移除 HTTP_PROXY/HTTPS_PROXY，用 wrapper 脚本显式 export
