@@ -1,6 +1,6 @@
 ---
 name: amaranth-wiki
-description: Source Hermes Agent skills and configurations from the Amaranth Wiki (wiki-for-amaranth.pages.dev) — a personal knowledge base with downloadable Hermes skill packs, architecture guides, and setup recipes.
+description: Source Hermes Agent skills and configurations from the Amaranth Wiki (wiki-for-amaranth.pages.dev) — a community/personal knowledge base by Amaranth, with downloadable Hermes skill packs, architecture guides, and setup recipes.
 version: 1.1.0
 author: Hermes Agent
 license: CC BY-NC-SA 4.0
@@ -14,7 +14,7 @@ metadata:
 
 # Amaranth Wiki — 技能来源与配置参考
 
-Amaranth Wiki 是用户的个人知识库，托管于 Cloudflare Pages，源码在 GitHub `HTZY08/wiki-for-Amaranth`。其中的 **📦 Skill 分享** 板块提供可下载的 Hermes Agent 技能包。
+Amaranth Wiki 是由 Amaranth 维护的个人知识库，托管于 Cloudflare Pages，源码在 GitHub `HTZY08/wiki-for-Amaranth`。我们可以从中学习技能安装、架构设计和配置方案。其中的 **📦 Skill 分享** 板块提供可下载的 Hermes Agent 技能包。
 
 ## 访问方式
 
