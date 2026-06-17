@@ -23,7 +23,14 @@ fallback_providers:
   api_key: ${SN_API_KEY}
   model: sensenova-6.7-flash-lite
 
-# --- 以下为原配置保留，按需修改 ---
+auxiliary:
+  vision:
+    provider: custom
+    model: sensenova-6.7-flash-lite
+    base_url: https://token.sensenova.cn/v1
+    api_key: ${SN_API_KEY}
+    timeout: 120
+    download_timeout: 30
 
 terminal:
   backend: local
